@@ -1,6 +1,6 @@
-# Triptease lightning talk
+# Triptease lightning talk ⚡💬
 
-This is a small project for a lightning talk, which I will give at Triptease's Product Emgineering Offsite, to 
+This is a small project for a lightning talk, which I will give at Triptease's Product Engineering Offsite, to 
 give a small intro to svelte and how it works.
 
 ---
