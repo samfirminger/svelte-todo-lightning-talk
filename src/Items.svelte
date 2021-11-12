@@ -1,5 +1,8 @@
 <script>
+    // Imports
     import Item from "./Item.svelte";
+
+    // Props from parent
     export let items;
 </script>
 

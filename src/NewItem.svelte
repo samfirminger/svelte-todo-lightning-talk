@@ -1,11 +1,14 @@
 <script>
+    // Imports
     import {createEventDispatcher} from "svelte";
 
+    // Create component variable
     let item = '';
 
+    // Create dispatcher to talk to parent
     const dispatcher = createEventDispatcher();
 
-    function handleClick(e) {
+    function handleClick() {
         dispatcher("addNewItem", {item, done: false});
         item = '';
     }
@@ -17,7 +20,6 @@
 </div>
 
 <style>
-
     .new-item {
         display: flex;
         justify-content: space-between;
@@ -34,11 +36,5 @@
         width: 80px;
         cursor: pointer;
         border-radius: 4px;
-    }
-
-    @media (min-width: 640px) {
-        main {
-            max-width: none;
-        }
     }
 </style>

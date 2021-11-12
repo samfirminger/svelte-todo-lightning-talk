@@ -1,10 +1,13 @@
 <script>
+    // Imports
     import {setContext} from 'svelte';
     import NewItem from "./NewItem.svelte";
     import Items from "./Items.svelte";
 
+    // Set up variables
     let items = [];
 
+    // Component functions
     function addToItems(e) {
         items = [...items, e.detail];
     }
@@ -15,20 +18,22 @@
     }
 
     function tickItem(index) {
-        items[index].done = true;
-        items = items;
+        if (!items[index].done) {
+            items[index].done = true;
+            items = items;
+        }
     }
 
+    // Set context
     setContext("deleteItem", deleteItem);
     setContext("tickItem", tickItem);
-
 
 </script>
 
 <!--{@debug items}-->
 
 <main>
-    <h1>Triptease To-do List</h1>
+    <h1>Sams' ⚡💬 To-do List</h1>
     <NewItem on:addNewItem={addToItems}/>
     <Items items={items} on:deleteItem={deleteItem} on:tickItem={tickItem}/>
 </main>

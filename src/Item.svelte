@@ -17,7 +17,7 @@
         <div class="icon-container delete" on:click={deleteItem(index)}>
             <img src="/delete.png" class="item-icon"/>
         </div>
-        <div class="icon-container tick" on:click={tickItem(index)}>
+        <div class="icon-container tick" class:tick-checked={item.done} on:click={tickItem(index)}>
             <img src="/tick.png" class="item-icon"/>
         </div>
     </div>
@@ -45,6 +45,11 @@
         border-radius: 3px;
         cursor: pointer;
         margin-left: 5px;
+    }
+
+    .tick-checked {
+        background-color: #c4ffc4;
+        cursor: auto;
     }
 
     .delete {
