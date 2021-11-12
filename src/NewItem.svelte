@@ -4,26 +4,28 @@
 
     // Create component variable
     let item = '';
+    $: itemHasContent = item.length > 0;
 
     // Create dispatcher to talk to parent
     const dispatcher = createEventDispatcher();
 
     function handleClick() {
-        dispatcher("addNewItem", {item, done: false});
-        item = '';
+        if (itemHasContent) {
+            dispatcher("addNewItem", {item, done: false});
+            item = '';
+        }
     }
 </script>
 
 <div class="new-item">
     <input type="text" bind:value={item}/>
-    <button on:click={handleClick}>Add</button>
+    <button disabled="{!itemHasContent}" on:click={handleClick}>Add</button>
 </div>
 
 <style>
     .new-item {
         display: flex;
         justify-content: space-between;
-        width: 500px;
     }
 
     input {
@@ -34,7 +36,16 @@
     button {
         height: 30px;
         width: 80px;
-        cursor: pointer;
         border-radius: 4px;
+        cursor: auto;
     }
+
+    .clickable {
+        cursor: pointer;
+    }
+
+    .clickable:hover {
+        background-color: #e9e6e6;
+    }
+
 </style>

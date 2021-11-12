@@ -15,7 +15,6 @@
 
 <style>
     .todo-container {
-        width: 500px;
-        margin-top: 50px;
+        margin-top: 30px;
     }
 </style>

@@ -56,8 +56,16 @@
         border: 1px solid #B43D48;
     }
 
+    .delete:hover {
+        background-color: #ffbdbd;
+    }
+
     .tick {
         border: 1px solid #008001;
+    }
+
+    .tick:hover {
+        background-color: #c4ffc4;
     }
 
     .item-icon {

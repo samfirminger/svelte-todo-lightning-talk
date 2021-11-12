@@ -3,9 +3,11 @@
     import {setContext} from 'svelte';
     import NewItem from "./NewItem.svelte";
     import Items from "./Items.svelte";
+    import Stats from "./Stats.svelte";
 
     // Set up variables
     let items = [];
+    $: doneCount = items.filter(item => item.done).length;
 
     // Component functions
     function addToItems(e) {
@@ -15,6 +17,7 @@
     function deleteItem(index) {
         items.splice(index, 1);
         items = items;
+
     }
 
     function tickItem(index) {
@@ -24,7 +27,7 @@
         }
     }
 
-    // Set context
+    // Set context map
     setContext("deleteItem", deleteItem);
     setContext("tickItem", tickItem);
 
@@ -34,8 +37,11 @@
 
 <main>
     <h1>Sams' ⚡💬 To-do List</h1>
-    <NewItem on:addNewItem={addToItems}/>
-    <Items items={items} on:deleteItem={deleteItem} on:tickItem={tickItem}/>
+    <div class="todo">
+        <NewItem on:addNewItem={addToItems}/>
+        <Stats items={items} doneCount={doneCount}/>
+        <Items items={items} on:deleteItem={deleteItem} on:tickItem={tickItem}/>
+    </div>
 </main>
 
 
@@ -61,5 +67,9 @@
         main {
             max-width: none;
         }
+    }
+
+    .todo {
+        width: 500px;
     }
 </style>
