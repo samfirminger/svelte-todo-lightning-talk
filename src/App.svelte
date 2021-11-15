@@ -17,7 +17,6 @@
     function deleteItem(index) {
         items.splice(index, 1);
         items = items;
-
     }
 
     function tickItem(index) {
@@ -52,7 +51,6 @@
         align-items: center;
         flex-direction: column;
         padding: 1em;
-        max-width: 240px;
         margin: 0 auto;
     }
 
