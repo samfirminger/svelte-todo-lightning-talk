@@ -35,7 +35,7 @@
 <!--{@debug items}-->
 
 <main>
-    <h1>Sams' ⚡💬 To-do List</h1>
+    <h1>Sam's ⚡💬 To-do List</h1>
     <div class="todo">
         <NewItem on:addNewItem={addToItems}/>
         <Stats items={items} doneCount={doneCount}/>
